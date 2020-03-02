@@ -2309,6 +2309,8 @@ https://docs.python.org/2/library/functions.html#apply
      [[https://github.com/alhassy/CheatSheet][CheatSheets with Org-mode]]
      system.
 
+     ,#+html: <p align=\"center\"><a href=\"https://www.python.org/\"><img src=\"https://img.shields.io/badge/Python-3.8.1-b48ead.svg?style=plastic\"/></a></p><p align=\"center\"><img src=\"emacs-birthday-present.png\" width=200 height=250/></p>
+
      ,#+TOC: headlines 2
      ,#+INCLUDE: CheatSheet.org
     ")
