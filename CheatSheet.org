@@ -8,6 +8,58 @@
 
 # src_python[:exports code]{
 
+* COMMENT Emacs Setup
+
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+(setq org-babel-python-command "python3")
+
+;; To see the buffer running the interpreter
+;; (org-babel-switch-to-session)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell
+# brew install python@3.8
+# echo 'export PATH="/usr/local/opt/python@3.8/bin:$PATH"' >> ~/.zshrc
+
+# Reload the environemtn variables from within emacs
+# source ~/.zshrc
+# (exec-path-from-shell-copy-env "PATH")
+
+python3 --version
+#+end_src
+
+#+RESULTS:
+: Python 3.8.3
+
+Python has been installed as
+  /usr/local/opt/python@3.8/bin/python3
+
+You can install Python packages with
+  /usr/local/opt/python@3.8/bin/pip3 install <package>
+
+They will install into the site-package directory
+  /usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages
+
+See: https://docs.brew.sh/Homebrew-and-Python
+
+python@3.8 is keg-only, which means it was not symlinked into /usr/local,
+because this is an alternate version of another formula.
+
+If you need to have python@3.8 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/python@3.8/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find python@3.8 you may need to set:
+  export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+
+For pkg-config to find python@3.8 you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/python@3.8/lib/pkgconfig"
+
 * COMMENT The type of types is ‘type’, which is its own type!
 #+begin_src python
 # The type of types is ‘type’, which is its own type!
@@ -15,6 +67,8 @@ assert type(1)    == int
 assert type(int)  == type
 assert type(type) == type
 #+end_src
+
+#+RESULTS:
 
 * LaTeX Extra, Local, Setup  :ignore:
 
@@ -111,58 +165,6 @@ Press ~C-c C-c~ on the following incantation to produce a single column portrait
       )
 )
 #+END_SRC
-
-* COMMENT Emacs Setup
-
-#+begin_src emacs-lisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)))
-
-(setq org-babel-python-command "python3")
-
-;; To see the buffer running the interpreter
-;; (org-babel-switch-to-session)
-#+end_src
-
-#+RESULTS:
-
-#+begin_src shell
-# brew install python@3.8
-# echo 'export PATH="/usr/local/opt/python@3.8/bin:$PATH"' >> ~/.zshrc
-
-# Reload the environemtn variables from within emacs
-# source ~/.zshrc
-# (exec-path-from-shell-copy-env "PATH")
-
-python3 --version
-#+end_src
-
-#+RESULTS:
-: Python 3.8.1
-
-Python has been installed as
-  /usr/local/opt/python@3.8/bin/python3
-
-You can install Python packages with
-  /usr/local/opt/python@3.8/bin/pip3 install <package>
-
-They will install into the site-package directory
-  /usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages
-
-See: https://docs.brew.sh/Homebrew-and-Python
-
-python@3.8 is keg-only, which means it was not symlinked into /usr/local,
-because this is an alternate version of another formula.
-
-If you need to have python@3.8 first in your PATH run:
-  echo 'export PATH="/usr/local/opt/python@3.8/bin:$PATH"' >> ~/.zshrc
-
-For compilers to find python@3.8 you may need to set:
-  export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
-
-For pkg-config to find python@3.8 you may need to set:
-  export PKG_CONFIG_PATH="/usr/local/opt/python@3.8/lib/pkgconfig"
 
 * Initial negative space :ignore:
   #+latex: \vspace{-1em}
